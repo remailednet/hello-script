@@ -1,0 +1,64 @@
+# Dependencies
+/vendor/
+/composer.phar
+/composer.lock
+
+# Cache and logs
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+.php_cs.cache
+*.cache
+coverage/
+logs/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.backup
+.env.*.backup
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.*.kate-swp
+.project
+.buildpath
+.settings/
+.classpath
+.sass-cache/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build artifacts
+/build/
+/dist/
+/public/build/
+/node_modules/
+
+# Test artifacts
+.phpunit.result.cache
+.phpunit/
+/coverage/
+/coverage.xml
+/clover.xml
+*.codecov
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+!docker-compose.yml
