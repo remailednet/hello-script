@@ -1,12 +1,29 @@
 # Hello Script
 
-A simple PHP script that prints a greeting message with a customizable name.
+[![CI](https://github.com/remailednet/hello-script/actions/workflows/ci.yml/badge.svg)](https://github.com/remailednet/hello-script/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/remailednet/hello-script/branch/main/graph/badge.svg)](https://codecov.io/gh/remailednet/hello-script)
+[![PHP Version](https://img.shields.io/packagist/php-v/openhands/hello-script.svg)](https://packagist.org/packages/openhands/hello-script)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Requirements
+A modern PHP CLI application that demonstrates best practices for PHP development. The application prints a customizable greeting message.
+
+## 🚀 Features
+
+- Customizable greeting message
+- PSR-12 compliant code
+- Comprehensive test suite
+- Static analysis
+- Continuous Integration
+- Security checks
+
+## 📋 Requirements
+
 - PHP 8.2 or higher
-- Composer (for development)
+- Composer 2.0 or higher
 
-## Installation
+## 📦 Installation
+
+### As a Project Template
 
 ```bash
 composer create-project openhands/hello-script
@@ -14,12 +31,15 @@ cd hello-script
 chmod +x src/hello.php
 ```
 
-For development:
+### For Development
+
 ```bash
-composer install
+git clone https://github.com/remailednet/hello-script.git
+cd hello-script
+make install
 ```
 
-## Usage
+## 🎯 Usage
 
 ```bash
 # Print "hello world!"
@@ -29,36 +49,61 @@ composer install
 ./src/hello.php Alice
 ```
 
-## Development
+## 🛠️ Development
 
-### Running Tests
+We use `make` to simplify common development tasks. Run `make help` to see all available commands.
+
+### Quick Start
+
+```bash
+# Install dependencies
+make install
+
+# Run all checks (install, cs-fix, stan, test)
+make all
+```
+
+### Available Commands
+
 ```bash
 # Run tests
-composer test
+make test
 
-# Run tests with coverage report
-composer test-coverage
+# Run tests with coverage
+make coverage
+
+# Check coding standards
+make cs-check
+
+# Fix coding standards
+make cs-fix
+
+# Run static analysis
+make stan
+
+# Run security check
+make security
 ```
 
-### Code Style
-The project follows PSR-12 coding standards. To check and fix the code style:
+### Code Quality Tools
 
-```bash
-# Check code style
-composer cs-check
+- **PHPUnit** for testing
+- **PHP CS Fixer** for coding standards (PSR-12)
+- **PHPStan** for static analysis
+- **Security Checker** for dependency vulnerabilities
 
-# Fix code style
-composer cs-fix
-```
+## 🤝 Contributing
 
-### Static Analysis
-```bash
-# Run PHPStan
-composer phpstan
-```
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## Contributing
-Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+### Development Process
 
-## License
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+1. Fork the repository
+2. Create a feature branch
+3. Write your changes
+4. Run `make all` to ensure all checks pass
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
