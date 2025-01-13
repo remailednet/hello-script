@@ -1,8 +1,39 @@
 {
+    "name": "openhands/hello-script",
+    "description": "A simple PHP script that prints customizable greetings",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OpenHands",
+            "email": "openhands@all-hands.dev"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
     "require-dev": {
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^1.0"
     },
     "autoload": {
-        "files": ["hello.php"]
-    }
+        "files": ["src/hello.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html coverage",
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "phpstan": "phpstan analyse src tests --level=8"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
 }
