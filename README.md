@@ -23,13 +23,17 @@ A modern PHP CLI application that demonstrates best practices for PHP developmen
 
 ## 📦 Installation
 
-### As a Project Template
+### Using Composer
 
 ```bash
+# Install as a new project
 composer create-project openhands/hello-script
-cd hello-script
-chmod +x src/hello.php
+
+# Or add to an existing project
+composer require openhands/hello-script
 ```
+
+The executable will be available in `vendor/bin/hello` after installation.
 
 ### For Development
 
@@ -54,10 +58,13 @@ docker-compose run app ./bin/hello Alice  # Run with argument
 
 ```bash
 # Print "hello world!"
-./src/hello.php
+./bin/hello
 
 # Print "hello Alice!"
-./src/hello.php Alice
+./bin/hello Alice
+
+# If installed as a dependency
+vendor/bin/hello Alice
 ```
 
 ## 🛠️ Development
