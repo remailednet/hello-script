@@ -33,10 +33,21 @@ chmod +x src/hello.php
 
 ### For Development
 
+#### Using Local PHP
+
 ```bash
 git clone https://github.com/remailednet/hello-script.git
 cd hello-script
 make install
+```
+
+#### Using Docker
+
+```bash
+git clone https://github.com/remailednet/hello-script.git
+cd hello-script
+docker-compose up --build  # Runs all checks
+docker-compose run app ./bin/hello Alice  # Run with argument
 ```
 
 ## 🎯 Usage

@@ -1,14 +1,58 @@
 <?php
+
+declare(strict_types=1);
+
+namespace OpenHands\HelloScript\Tests;
+
+use OpenHands\HelloScript\Greeter;
 use PHPUnit\Framework\TestCase;
 
-require_once 'hello.php';
+class GreeterTest extends TestCase
+{
+    private Greeter $greeter;
 
-class HelloTest extends TestCase {
-    public function testDefaultGreeting(): void {
-        $this->assertEquals('hello world!', sayHello());
+    protected function setUp(): void
+    {
+        $this->greeter = new Greeter();
     }
 
-    public function testCustomNameGreeting(): void {
-        $this->assertEquals('hello Alice!', sayHello('Alice'));
+    /**
+     * @test
+     */
+    public function it_returns_default_greeting_when_no_name_provided(): void
+    {
+        $this->assertEquals('hello world!', $this->greeter->sayHello());
+    }
+
+    /**
+     * @test
+     */
+    public function it_returns_default_greeting_when_null_provided(): void
+    {
+        $this->assertEquals('hello world!', $this->greeter->sayHello(null));
+    }
+
+    /**
+     * @test
+     */
+    public function it_returns_custom_greeting_when_name_provided(): void
+    {
+        $this->assertEquals('hello Alice!', $this->greeter->sayHello('Alice'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_handles_empty_string_name(): void
+    {
+        $this->assertEquals('hello world!', $this->greeter->sayHello(''));
+    }
+
+    /**
+     * @test
+     */
+    public function it_handles_numeric_name(): void
+    {
+        $this->assertEquals('hello 42!', $this->greeter->sayHello('42'));
     }
 }

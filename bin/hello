@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use OpenHands\HelloScript\Greeter;
+
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require __DIR__ . '/../vendor/autoload.php';
+} else {
+    fwrite(STDERR, 'Dependencies not found. Run: composer install' . PHP_EOL);
+    exit(1);
+}
+
+$greeter = new Greeter();
+echo $greeter->sayHello($argv[1] ?? null) . PHP_EOL;

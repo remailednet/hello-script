@@ -1,8 +1,14 @@
 {
     "name": "openhands/hello-script",
-    "description": "A simple PHP script that prints customizable greetings",
+    "description": "A modern PHP CLI application that demonstrates PHP development best practices",
     "type": "project",
     "license": "MIT",
+    "keywords": [
+        "cli",
+        "console",
+        "example",
+        "best-practices"
+    ],
     "authors": [
         {
             "name": "OpenHands",
@@ -13,27 +19,56 @@
         "php": "^8.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.0",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "phpstan/phpstan": "^1.0"
+        "phpstan/phpstan": "^1.0",
+        "phpunit/phpunit": "^10.0",
+        "roave/security-advisories": "dev-latest"
     },
     "autoload": {
-        "files": ["src/hello.php"]
+        "psr-4": {
+            "OpenHands\\HelloScript\\": "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "OpenHands\\HelloScript\\Tests\\": "tests/"
         }
     },
+    "bin": [
+        "bin/hello"
+    ],
     "scripts": {
         "test": "phpunit",
-        "test-coverage": "phpunit --coverage-html coverage",
+        "test-coverage": "XDEBUG_MODE=coverage phpunit --coverage-html coverage",
         "cs-fix": "php-cs-fixer fix",
         "cs-check": "php-cs-fixer fix --dry-run --diff",
-        "phpstan": "phpstan analyse src tests --level=8"
+        "phpstan": "phpstan analyse",
+        "check": [
+            "@cs-check",
+            "@phpstan",
+            "@test"
+        ],
+        "post-install-cmd": [
+            "chmod +x bin/hello"
+        ],
+        "post-update-cmd": [
+            "chmod +x bin/hello"
+        ]
+    },
+    "scripts-descriptions": {
+        "test": "Run PHPUnit tests",
+        "test-coverage": "Run PHPUnit tests with code coverage report",
+        "cs-fix": "Fix code style issues",
+        "cs-check": "Check code style",
+        "phpstan": "Run static analysis",
+        "check": "Run all checks"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
